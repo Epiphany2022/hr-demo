@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import {  Link } from 'react-router-dom'
 import classes from './Register.module.css';
 import MainLogo from '../../Assests/Easy.png';
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { useForm } from 'react-hook-form';
+import fire from '../../Config/fire'
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 export default function Register() {
@@ -23,6 +26,20 @@ export default function Register() {
 
         }
     };
+
+    const { register, handleSubmit } = useForm(
+       
+        );
+
+
+        const onSubmit  = (data) =>{
+            console.log(data)
+            fire.auth().createUserWithEmailAndPassword(data.email, data.password)
+            .catch((err)=>{
+                console.log(err)
+            })
+         
+        }
 
     return (
         <div
@@ -49,14 +66,14 @@ export default function Register() {
               initial={{ x: "120vw", transition: { type: "spring", duration: 2 } }}
               animate={{ x: 0, transition: { type: "spring", duration: 2 } }}
             className={classes.FormContainer}>
-                <form autoComplete="off" className={classes.RegisterForm}>
+                <form autoComplete="off" className={classes.RegisterForm} onSubmit={handleSubmit(onSubmit)} >
                 <div className={classes.InputBox}>
                    <input
                                             className={classes.InputTag}
-                                            name="username"
+                                            name="name"
                                             type="text"
                                             placeholder="Name"
-                                          
+                                            {...register("name")}
                                             required
                                         />
                    </div>
@@ -66,7 +83,7 @@ export default function Register() {
                                         name="email"
                                         type="email"
                                         placeholder="Email"
-                                         
+                                        {...register("email")}
                                         required
                                     />
                   </div>
@@ -76,11 +93,20 @@ export default function Register() {
                                             name="password"
                                             type={passwordShown ? "text" : "password"}
                                             placeholder="Password"
-                                           
+                                            {...register("password")}
                                             required
                                         />
                                          <i onClick={(e) => { togglePasswordVisiblity(e) }} className={passwordShownColor === "inActive" ? classes.EyeIcons : [classes.EyeIcons, classes.ActivePassword].join(' ')}>{eye}</i>
                    </div>
+                   <div className={classes.InputBox}>
+                   <motion.button 
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.9 }}
+                   className={classes.Btn} type="submit">Register</motion.button>
+                  </div>
+                  <div className={classes.LinkContainer}>
+                      <p>Already registered ? <Link className={classes.LinkSeg} to="/login">Login</Link> </p>
+                  </div>
                 </form>
             </motion.div>
             </div>

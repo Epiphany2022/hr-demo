@@ -26,6 +26,7 @@
 .HeaderContainer{
     width: 85%;
     padding: 3rem;
+    padding-left: 6rem;
     display: flex;
     flex-direction: column;
     height: 24%;
@@ -33,6 +34,7 @@
     align-items: center;
    justify-content: center;
    margin: 0.2rem;
+   padding-top: 1rem;
 }
 .HeaderContainer>h1{
    font-size: 3rem;
@@ -42,12 +44,16 @@
    font-weight: 800;
    line-height: 2rem;
    margin-bottom: 0.2rem;
+   width: 100%;
+   text-align: center;
    
 }
 .HeaderContainer>h2{
     font-style: normal;
     letter-spacing: 0.5rem;
     color: #6B6B6D;
+    width: 100%;
+    text-align: center;
 }
 .FormContainer{
     width: 100%;
@@ -55,8 +61,8 @@
   justify-content: center;
 }
 .RegisterForm{
-    width: 30rem;
-    height: 62vh;
+    width: 25rem;
+    height: 67vh;
     background-color: #FFFFFF;
     border: 1px solid #f8f8f8;
     box-shadow: 1px 5px 5px rgb(0 0 0 / 5%);
@@ -68,19 +74,50 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 .InputBox{
     width: 100%;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
 }
 .InputTag{
-    width: 80%;
+    width: 100%;
     height: 5rem;
     outline: none;
-    background-color: #F8FAFB;
+    background-color: #E8F0FE;
     border: 1px solid #F8FAFB;
     box-sizing: border-box;
     margin: 0;
     border-radius: 10px;
+    padding-left: 2rem;
+    font-size: 1.2rem;
 }
+.EyeIcons {
+    position: relative;
+    top: -49%;
+    right: -83%;
+    cursor: pointer;
+    color: #b4b4b4;
+  }
+  .ActivePassword{color:#455AF7}
+  .Btn{
+    width: 100%;
+    height: 5rem;
+    outline: none;
+    background-color: #455AF7;
+    border: 1px solid #F3F5F5;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 0;
+    border-radius: 10px;
+   color: #F8FAFB;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.5rem;
+  }
+  .LinkSeg{
+   text-decoration: none;
+   color: #000;
+  }
+  
