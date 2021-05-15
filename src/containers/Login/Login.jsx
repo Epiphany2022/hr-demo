@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Link } from 'react-router-dom'
+import {  Link, useHistory } from 'react-router-dom'
 import classes from './Login.module.css'
 import MainLogo from '../../Assests/Easy.png';
 import { motion } from "framer-motion";
@@ -15,6 +15,8 @@ export default function Login() {
 
     const [passwordShownColor, setPasswordShownColor] = useState("inActive");
     const [passwordShown, setPasswordShown] = useState(false);
+
+    const history = useHistory()
 
     const togglePasswordVisiblity = (e) => {
 
@@ -38,10 +40,11 @@ export default function Login() {
             console.log(data)
             fire.auth().signInWithEmailAndPassword(data.email, data.password)
             .then((u) =>{
-              alert('h')
+                localStorage.setItem('log', "loggedIn")
+                history.push('/dashboard')
             })
             .catch((err) =>{
-                console.log(err)
+               alert(err.message)
             })
          
         }
