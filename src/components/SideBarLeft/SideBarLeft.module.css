@@ -1,0 +1,16 @@
+.HeaderContent{
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+}
+
+
+.LogoContainer{
+width: 100%;
+;
+}
+.LogoContainer>img{
+    width: 80%;
+    height: 80%;
+    
+}
