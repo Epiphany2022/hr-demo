@@ -6,7 +6,9 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from 'react-hook-form';
-import fire from '../../Config/fire'
+import fire from '../../Config/fire';
+import { userCred } from '../../Redux/reducer';
+import { useDispatch }  from 'react-redux'
 
 
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -35,12 +37,23 @@ export default function Login() {
        
         );
 
+        const dispatch = useDispatch();
+
 
         const onSubmit  = (data) =>{
             console.log(data)
             fire.auth().signInWithEmailAndPassword(data.email, data.password)
             .then((u) =>{
-                localStorage.setItem('log', "loggedIn")
+                
+                localStorage.setItem('log', "loggedIn");
+                if(u.user.email){
+                    dispatch(
+                        userCred({
+                            email:u['user']['email']
+                        })
+                     )
+                }
+            
                 history.push('/dashboard')
             })
             .catch((err) =>{
