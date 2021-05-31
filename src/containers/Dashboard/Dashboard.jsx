@@ -1,16 +1,18 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory,useLocation } from 'react-router-dom';
 import classes from './Dashboard.module.css';
 import SideBarLeft from '../../components/SideBarLeft/SideBarLeft'
 import { Route,  BrowserRouter, Switch, Redirect } from 'react-router-dom';
-import TempOne from '../TempOne';
-import TempTwo from '../TempTwo';
-import TopBar from '../../components/TopBar/TopBar'
+import Products from '../Products/Products';
+import Customers from '../Customers/Customers';
+import TopBar from '../../components/TopBar/TopBar';
+import OverView from '../OverView/OverView'
 
 
 export default function Dashboard() {
 
-
+    const location = useLocation();
+    console.log(location)
 
 
     return (
@@ -21,13 +23,17 @@ export default function Dashboard() {
             </header>
             <div className={classes.MainContentContainer}>
             <TopBar/>
-                <Switch>
-                    <Route  path="/dashboard/overview" component={TempOne} />
-                    <Route path="/dashboard/customer" component={TempTwo} />
-                </Switch>
+             
+                  <Switch>
+                  <Route exact path="/dashboard" component={OverView} />
+                  <Route  path="/dashboard/product" component={Products} />
+                  <Route path="/dashboard/customer" component={Customers} />
+              </Switch>
+               
+               
                 </div>
                 <div className={classes.SideBarRightContainer}>
-                h
+                
                 </div>
         </div>
     )

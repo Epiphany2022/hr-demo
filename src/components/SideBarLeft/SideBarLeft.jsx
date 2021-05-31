@@ -14,7 +14,7 @@ export default function SideBarLeft() {
         </div>
         <nav className={classes.NavMainContainer}>
             <div className={classes.NavLinkContainer}>
-               <Link to="/dashboard/overview" className={classes.NavLinkFlexWrapper}>
+               <Link to="/dashboard" className={classes.NavLinkFlexWrapper}>
                   <img className={classes.NavLinkIcons} src={OverView} alt="overview" />
                    <p>Overview</p>
                </Link>
@@ -32,6 +32,7 @@ export default function SideBarLeft() {
                </Link>
             </div>
         </nav>
+      
     </div>
     )
 }
