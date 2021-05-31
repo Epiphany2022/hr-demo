@@ -1,0 +1,43 @@
+.Card{
+   width: 18%;
+   display: flex;
+   padding: 1rem;
+   padding-left: 2rem;
+   background-color: #FFFFFF;
+   margin-left: 0.2rem;
+   margin-bottom: 2rem;
+   flex-direction: row;
+   height: 50px;
+   align-items: center;
+   border-radius: 12px;
+   filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.05));
+
+}
+.IconWrapper{
+    width: 25%;
+    
+    
+}
+.IconWrapper>img{
+    width: 100%;
+}
+.DetailWrapper{
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    margin-left: 1.2rem;
+    align-items: center;
+    justify-content: center;
+}
+.Detail{
+    color: #C7C7C7;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+}
+.Number{
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: 700;
+    color: #2C2C2C;
+}

@@ -2,6 +2,7 @@
     display: flex;
     padding: 1rem;
     flex-direction: column;
+   
 }
 
 
@@ -13,4 +14,55 @@ width: 100%;
     width: 80%;
     height: 80%;
     
+}
+.NavMainContainer{
+    width: 100%;
+ 
+  
+}
+.NavLinkContainer{
+    width: 100%;
+    display:flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+   
+ 
+}
+.NavLinkFlexWrapper{
+   
+    width: 100%;
+    display:flex ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    height: 50px;
+   cursor: pointer;
+   flex-basis: auto;
+   transition: all 0.2s;
+   text-decoration: none;
+   color: #000;
+}
+.NavLinkFlexWrapper:hover{
+   
+    border:  #ffffff;
+    background-color: #FFFFFF;
+    border-top-right-radius:8px ;
+    border-bottom-right-radius:8px ;
+    border-left: 5px solid #485CE2;
+    transition: all 0.2s;
+}
+.NavLinkFlexWrapper:hover p{
+    color: #485CE2;
+    font-weight: 800;
+}
+.NavLinkFlexWrapper>img{
+    width: 15%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.NavLinkFlexWrapper>p{
+    width: 70%;
+   
 }

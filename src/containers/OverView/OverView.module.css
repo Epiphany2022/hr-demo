@@ -1,0 +1,26 @@
+.MainContainer{
+    width: 62.7vw;
+ 
+   height: 82vh;
+ 
+   margin-top: 1rem;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+  overflow-y: auto;
+  
+}
+.TopFlexWrapper{
+    width: 62vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+   
+}
+.MiddleFlexWrapper{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: space-between;
+    margin-right: 0.8rem;
+}
