@@ -74,12 +74,16 @@
     align-items: center;
     margin-right: 2rem;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.1s;
 }
 .GridContainer{
     display: flex;
     align-items: center;
     margin-right: 4rem;
     justify-content: center;
+    cursor: pointer;
+    transition: 0.1s;
 }
 .HeaderList,.HeaderGrid{
     font-size: 1rem;
@@ -92,19 +96,30 @@
     height: 30px;
     
     padding: 0.5rem;
- 
+    transition: all 0.3s;
   
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 1.8rem;
   padding-right: 1.2rem;
-  
+   
     
+}
+.OrderSecondHederHidden{
+    display: none;
+    transition: all 0.3s;
 }
 .OrderId,.CustomerName,.OrderDate,.OrderAmount,.Status{
     color: #636363;
     font-weight: 800;
+}
+.OrderCardGrid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   margin-top: 1rem;
+  
 }
 .OrderCardContainer{
     display: flex;

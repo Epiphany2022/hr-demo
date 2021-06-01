@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import classes from './OrderListCard.module.css';
 import profilePic from '../../Assests/nishant.jpg';
-export default function OrderListCard() {
+export default function OrderListCard(props) {
+    
+   
+
     return (
-        <div className={classes.MainContainer}>
+        <div className={[props.isGrid?classes.MainContainerGrid:classes.MainContainer]}>
             <div className={classes.OrderIdContainer}>
                 s-1248
             </div>

@@ -1,13 +1,25 @@
-import React,{ useEffect } from 'react'
+import React,{ useEffect,useState } from 'react'
 import classes from './OverView.module.css';
 import OverviewSmallCards from '../../components/OverviewSmalCards/OverviewSmallCards';
 import PerformanceChart from '../../components/PerformaceChart/PerformanceChart';
 import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import listIcon from '../../Assests/list.svg';
+import listColor from '../../Assests/coloredList.svg';
 import gridIcon from '../../Assests/grid.svg';
+import gridColor from '../../Assests/coloredGrid.svg';
 import OrderListCard from '../../components/OrderListCard/OrderListCard';
 import { motion } from "framer-motion";
 export default function OverView() {
+
+    const [isGrid, setIsGrid] = useState(false);
+
+    const handleGridClick = () =>{
+        setIsGrid(true)
+    };
+    const handleListClick = () =>{
+        setIsGrid(false)
+    };
+
 
     useEffect(()=>{
        document.title="Easy Erp | Overview"
@@ -28,17 +40,17 @@ export default function OverView() {
       <div className={classes.OrderHeader}>
          <div className={classes.HeaderLeft}>Order List</div> 
          <div className={classes.HeaderRight}>
-             <div className={classes.ListContainer}>
+             <div onClick={handleListClick}  className={classes.ListContainer}>
               <div className={classes.ListSvgContainer}>
-                  <img src={listIcon} alt="List"/>
+                  <img src={isGrid?listIcon:listColor} alt="List"/>
               </div>
               <div className={classes.HeaderList}>
                   List
               </div>
              </div>
-             <div className={classes.GridContainer}>
-             <div className={classes.GridSvgContainer}>
-                  <img src={gridIcon} alt="List"/>
+             <div onClick={handleGridClick} className={classes.GridContainer}>
+             <div  className={classes.GridSvgContainer}>
+                  <img src={isGrid?gridColor:gridIcon} alt="Grid"/>
               </div>
               <div className={classes.HeaderGrid}>
                  Grid
@@ -46,7 +58,7 @@ export default function OverView() {
              </div>
              </div> 
       </div>
-      <div className={classes.OrderSecondHeader}>
+      <div className={[isGrid?classes.OrderSecondHederHidden:classes.OrderSecondHeader]}>
           <div className={classes.OrderId}>
               Order Id
           </div>
@@ -63,12 +75,12 @@ export default function OverView() {
           Status
           </div>
       </div>
-      <div className={classes.OrderCardContainer}>
- <OrderListCard/>
- <OrderListCard/>
- <OrderListCard/>
- <OrderListCard/>
- <OrderListCard/>
+      <div className={[isGrid?classes.OrderCardGrid:classes.OrderCardContainer]}>
+ <OrderListCard isGrid={isGrid} />
+ <OrderListCard isGrid={isGrid} />
+ <OrderListCard isGrid={isGrid} />
+ <OrderListCard isGrid={isGrid} />
+ <OrderListCard isGrid={isGrid} />
       </div>
       </motion.div>
         </div>
