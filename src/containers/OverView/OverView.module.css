@@ -110,3 +110,15 @@
     display: flex;
     flex-direction: column;
 }
+.CustomerName{
+    width: 20%;
+}
+.OrderId{
+    width: 9%;
+}
+.Status{
+    margin-right: 1rem;
+}
+.OrderDate{
+margin-left: 0.8rem;
+}

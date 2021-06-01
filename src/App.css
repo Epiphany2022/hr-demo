@@ -8,4 +8,5 @@ body,html{
   height: 100vh;
   overflow: hidden;
   scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
 }

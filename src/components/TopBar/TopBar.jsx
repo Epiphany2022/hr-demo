@@ -9,8 +9,8 @@ import { useSelector } from 'react-redux'
 
 export default function TopBar() {
 
-    const name = useSelector( state => state.userEmail.email );
-    const userName = name.split('@')[0];
+    // const name = useSelector( state => state.userEmail.email );
+    // const userName = name.split('@')[0];
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -42,7 +42,7 @@ export default function TopBar() {
                    <div className={classes.ProfilePic}>
                        <img src={Profile} alt="profile"/>
                    </div>
-                   <div onClick={logoutHandler} className={classes.NameWrapper}>{userName}</div>
+                   <div onClick={logoutHandler} className={classes.NameWrapper}>Logout</div>
                </div>
                </div>
         </div>

@@ -1,21 +1,30 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import classes from './OverView.module.css';
 import OverviewSmallCards from '../../components/OverviewSmalCards/OverviewSmallCards';
 import PerformanceChart from '../../components/PerformaceChart/PerformanceChart';
 import StatisticsChart from '../../components/StatisticsChart/StatisticsChart';
 import listIcon from '../../Assests/list.svg';
 import gridIcon from '../../Assests/grid.svg';
-import OrderListCard from '../../components/OrderListCard/OrderListCard'
+import OrderListCard from '../../components/OrderListCard/OrderListCard';
+import { motion } from "framer-motion";
 export default function OverView() {
+
+    useEffect(()=>{
+       document.title="Easy Erp | Overview"
+    },[])
+
     return (
         <div className={classes.MainContainer}>
-      <div className={classes.TopFlexWrapper}>
+      <motion.div   initial={{ y: "-120vw", transition: { type: "spring", duration: 1.5 } }}
+             animate={{ y: 0, transition: { type: "spring", duration: 1.5 } }} className={classes.TopFlexWrapper}>
       <OverviewSmallCards/><OverviewSmallCards/><OverviewSmallCards/><OverviewSmallCards/>
-      </div>
-      <div className={classes.MiddleFlexWrapper}>
+      </motion.div>
+      <motion.div    initial={{ x: "-120vw", transition: { type: "spring", duration: 1.5 } }}
+                  animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }} className={classes.MiddleFlexWrapper}>
          <PerformanceChart/><StatisticsChart/>
-      </div>
-      <div className={classes.BottomFlexWrapper}>
+      </motion.div>
+      <motion.div   initial={{ x: "120vw", transition: { type: "spring", duration: 1.5 } }}
+             animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }}  className={classes.BottomFlexWrapper}>
       <div className={classes.OrderHeader}>
          <div className={classes.HeaderLeft}>Order List</div> 
          <div className={classes.HeaderRight}>
@@ -61,7 +70,7 @@ export default function OverView() {
  <OrderListCard/>
  <OrderListCard/>
       </div>
-      </div>
+      </motion.div>
         </div>
     )
 }

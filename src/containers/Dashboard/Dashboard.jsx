@@ -6,7 +6,8 @@ import { Route,  BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import Products from '../Products/Products';
 import Customers from '../Customers/Customers';
 import TopBar from '../../components/TopBar/TopBar';
-import OverView from '../OverView/OverView'
+import OverView from '../OverView/OverView';
+import Notification from '../../components/Notification/Notification'
 
 
 export default function Dashboard() {
@@ -33,7 +34,7 @@ export default function Dashboard() {
                
                 </div>
                 <div className={classes.SideBarRightContainer}>
-                
+                <Notification/>
                 </div>
         </div>
     )
