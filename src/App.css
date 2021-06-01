@@ -1,4 +1,4 @@
-body{
+body,html{
   margin: 0;
   font-size: 18px;
   padding: 0;
@@ -7,4 +7,5 @@ body{
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  scroll-behavior: smooth;
 }
