@@ -113,13 +113,14 @@
 .OrderId,.CustomerName,.OrderDate,.OrderAmount,.Status{
     color: #636363;
     font-weight: 800;
+    font-size: 0.9rem;
 }
 .OrderCardGrid{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
    margin-top: 1rem;
-  
+  transition: all 0.2s;
 }
 .OrderCardContainer{
     display: flex;
@@ -127,9 +128,11 @@
 }
 .CustomerName{
     width: 20%;
+   
 }
 .OrderId{
     width: 9%;
+    
 }
 .Status{
     margin-right: 1rem;
@@ -137,3 +140,48 @@
 .OrderDate{
 margin-left: 0.8rem;
 }
+.PaginationContainer{
+    display: flex;
+    width:95%;
+    justify-content: flex-end;
+}
+.PaginationButtons {
+display: flex;
+flex-direction: row;
+width: 30%;
+justify-content: space-between;
+
+list-style: none;
+align-items: center;
+
+  }
+  
+  .PaginationButtons a {
+    cursor: pointer;
+   color: #AAACAE;
+   font-size: 0.8rem;
+  }
+  
+  .PaginationButtons a:hover {
+    color: #455AF7;
+  }
+  
+  .PaginationActive{
+   
+    width: 18px;
+    height:18px;
+    background-color: #455AF7;
+    text-align: center;
+    border-radius: 50%;
+  }
+  .PaginationActive a{
+    color: #ffffff;
+  }
+  
+  .PaginationDisabled a {
+   
+  }
+ .NextBtn:hover, .PreviousBtn:hover{
+     color: #455AF7;
+ }
+

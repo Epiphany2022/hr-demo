@@ -1,4 +1,4 @@
-import React,{ useEffect,useState } from 'react'
+import React,{ useEffect,useState, Suspense } from 'react'
 import classes from './OverView.module.css';
 import OverviewSmallCards from '../../components/OverviewSmalCards/OverviewSmallCards';
 import PerformanceChart from '../../components/PerformaceChart/PerformanceChart';
@@ -9,9 +9,45 @@ import gridIcon from '../../Assests/grid.svg';
 import gridColor from '../../Assests/coloredGrid.svg';
 import OrderListCard from '../../components/OrderListCard/OrderListCard';
 import { motion } from "framer-motion";
+import ReactPaginate from 'react-paginate';
+import {orderListData} from '../../components/Constants/defaultValue';
+import Axios from 'axios';
+import { accessOrderList } from '../../Redux/reducer';
+import { useDispatch, useSelector } from "react-redux";
+
+
+
+
 export default function OverView() {
 
+ 
+   
+    const dispatch = useDispatch();
+
     const [isGrid, setIsGrid] = useState(false);
+    const[pageNumber, setPageNumber]=useState(0);
+   const [listData, setListData]=useState([]);
+
+
+
+    // pagination
+    const userPerPage = 6;
+
+    const pagesVisited = pageNumber * userPerPage
+    //
+    const displayListData = listData.slice(pagesVisited, pagesVisited + userPerPage).map((item) =>{
+        return <OrderListCard id={item.id} key={item.id} name={item.name} 
+        date={item.date} amount={item.amount} status={item.status} img={item.img} isGrid={isGrid} />
+    })
+    
+   const pageCount = Math.ceil(listData.length / userPerPage);
+         
+
+   const changePage = ({selected}) =>{
+    setPageNumber(selected)
+   }
+
+       // pagination
 
     const handleGridClick = () =>{
         setIsGrid(true)
@@ -19,10 +55,26 @@ export default function OverView() {
     const handleListClick = () =>{
         setIsGrid(false)
     };
+    
 
 
     useEffect(()=>{
-       document.title="Easy Erp | Overview"
+       document.title="Easy Erp | Overview";
+
+       Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/OrderList")
+       .then(res =>{
+        setListData(res.data)
+        dispatch(
+            accessOrderList(res.data)
+           )
+       }).catch(err =>{
+           console.log(err)
+       })
+              
+       
+       
+     
+
     },[])
 
     return (
@@ -75,13 +127,33 @@ export default function OverView() {
           Status
           </div>
       </div>
+     
+
+   
       <div className={[isGrid?classes.OrderCardGrid:classes.OrderCardContainer]}>
- <OrderListCard isGrid={isGrid} />
- <OrderListCard isGrid={isGrid} />
- <OrderListCard isGrid={isGrid} />
- <OrderListCard isGrid={isGrid} />
- <OrderListCard isGrid={isGrid} />
+      <Suspense fallback={<h1>Loading profile...</h1>}>
+      {
+       displayListData
+      }
+      </Suspense>
+      <div className={classes.PaginationContainer}>
+      <ReactPaginate 
+       previousLabel={"Previous"}
+       nextLabel={"Next"}
+       pageCount={pageCount}
+       onPageChange={changePage}
+       containerClassName={classes.PaginationButtons}
+       previousClassName={classes.PreviousBtn}
+       nextLinkClassName={classes.NextBtn}
+       disabledClassName={classes.PaginationDisabled}
+       activeClassName={classes.PaginationActive}
+      />
       </div>
+  
+      </div>
+        
+                   
+      
       </motion.div>
         </div>
     )

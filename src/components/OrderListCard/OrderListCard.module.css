@@ -16,6 +16,9 @@
   color: #383838;
   font-size: 0.9rem;
   font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    overflow: hidden !important;
 }
 .CustomerMainContainer{
   width: 25%;
@@ -46,6 +49,7 @@
   font-size: 0.8rem;
   color: #383838;
   font-weight: 400;
+  transition: all 0.3s;
 }
 .OrderAmount{
   width: 13%;
@@ -59,6 +63,18 @@
   height: 30px;
   color: #3EC8A5;
   background-color: #EDFEFA;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3rem;
+  font-size: 0.8rem;
+}
+.StatusColorList{
+  width: 10%;
+  height: 30px;
+  color: #E9BDBD;
+  background-color: #FEF4F4;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -80,4 +96,70 @@ display: flex;
 flex-direction: column;
 margin-right: 2rem;
  transition: all 0.3s;
+}
+.OrderIdGrid{
+  width: 50%;
+  color: #383838;
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: none;
+}
+.CustomerMainContainerGrid{
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.ImageContainerGrid{
+  width: 30%;
+  border-radius: 6px;
+}
+.ImageContainerGrid>img{
+  width: 100%;
+  border-radius: 6px;
+
+}
+.NameGrid{
+  width: 100%;
+  margin-left: 0.8rem;
+  color: #383838;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    overflow: hidden !important;
+}
+.DateContainerGrid{
+  display: none;
+  transition: all 0.3s;
+}
+.StatusGrid{
+  margin-top: 1rem;
+  width: 80%;
+  height: 30px;
+  color: #3EC8A5;
+  background-color: #EDFEFA;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-left: 1rem;
+  font-size: 0.8rem;
+}
+.StatusGridColor{
+  margin-top: 1rem;
+  width: 80%;
+  height: 30px;
+  color: #E9BDBD;
+  background-color: #FEF4F4;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-left: 1rem;
+  font-size: 0.8rem;
 }

@@ -1,31 +1,47 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, Suspense} from 'react'
 import classes from './OrderListCard.module.css';
 import profilePic from '../../Assests/nishant.jpg';
 export default function OrderListCard(props) {
+
+    const[statusValue, setStatusValue]=useState("Confirm");
+    const[statusColor, setStatusColor]=useState(false)
+
+
     
-   
+  const status = props.status;
+
+  useEffect(() =>{
+    if(status === false){
+        setStatusValue('Cancel');
+        setStatusColor(true)
+     }
+  },[status])
+  
+ 
 
     return (
         <div className={[props.isGrid?classes.MainContainerGrid:classes.MainContainer]}>
-            <div className={classes.OrderIdContainer}>
-                s-1248
+            <div className={[props.isGrid?classes.OrderIdGrid:classes.OrderIdContainer]}>
+                {props.id}
             </div>
-            <div className={classes.CustomerMainContainer}>
-                <div className={classes.ImageContainer}>
-                    <img src={profilePic} alt="profile"/>
+            <div className={props.isGrid?classes.CustomerMainContainerGrid:classes.CustomerMainContainer}>
+                <div className={props.isGrid?classes.ImageContainerGrid:classes.ImageContainer}>
+                <Suspense fallback={<div>Loading</div>}>
+                    <img src={props.img} alt="profile"/>
+                    </Suspense>
                 </div>
-                <div className={classes.Name}>
-                    Derek Birdhouse
+                <div className={props.isGrid?classes.NameGrid:classes.Name}>
+                   {props.name}
                 </div>
             </div>
-            <div className={classes.DateContainer}>
-                01/25/2020
+            <div className={props.isGrid?classes.DateContainerGrid:classes.DateContainer}>
+               {props.date}
             </div>
             <div className={classes.OrderAmount}>
-                $4,750.00
+                {props.amount}
             </div>
-            <div className={classes.Status}>
-                Confirm
+            <div className={props.isGrid?statusColor?classes.StatusGridColor:classes.StatusGrid:statusColor?classes.StatusColorList:classes.Status}>
+               {statusValue}
             </div>
         </div>
     )

@@ -9,8 +9,13 @@ import { useSelector } from 'react-redux'
 
 export default function TopBar() {
 
-    // const name = useSelector( state => state.userEmail.email );
-    // const userName = name.split('@')[0];
+    const name = useSelector( state => state.userEmail.email );
+    if(name){
+        const userName = name.split('@')[0];
+        console.log(userName)
+    }
+   
+   
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');

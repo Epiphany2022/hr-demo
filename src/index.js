@@ -1,15 +1,20 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './Redux/Store';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+
+
+const loading = () => <div>Loading</div>
  
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+    <Suspense fallback={loading()}>
+        <App />
+      </Suspense>
     </Provider>
    
   </React.StrictMode>,
