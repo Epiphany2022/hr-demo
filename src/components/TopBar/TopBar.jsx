@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import classes from './TopBar.module.css';
 import Search from '../../Assests/search.png';
 import Calendar from '../../Assests/calendar.svg';
@@ -9,13 +9,11 @@ import { useSelector } from 'react-redux'
 
 export default function TopBar() {
 
-    const name = useSelector( state => state.userEmail.email );
-    if(name){
-        const userName = name.split('@')[0];
-        console.log(userName)
-    }
+
+
+
    
-   
+ 
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -44,9 +42,7 @@ export default function TopBar() {
                    <div className={classes.TodayDate}>{todayDate}</div>
                </div>
                <div className={classes.ProfileMainWrapper}>
-                   <div className={classes.ProfilePic}>
-                       <img src={Profile} alt="profile"/>
-                   </div>
+                   
                    <div onClick={logoutHandler} className={classes.NameWrapper}>Logout</div>
                </div>
                </div>

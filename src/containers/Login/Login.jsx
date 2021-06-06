@@ -46,13 +46,9 @@ export default function Login() {
             .then((u) =>{
                 
                 localStorage.setItem('log', "loggedIn");
-                if(u.user.email){
-                    dispatch(
-                        userCred({
-                            email:u['user']['email']
-                        })
-                     )
-                }
+                // if(u.user.email){
+                //    sessionStorage.setItem('id', u.user.email)
+                // }
             
                 history.push('/dashboard')
             })

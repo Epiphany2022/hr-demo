@@ -5,9 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './Redux/Store';
 import { Provider } from 'react-redux';
+import { Instagram } from 'react-content-loader';
 
-
-const loading = () => <div>Loading</div>
+const loading = () => <Instagram/>
  
 ReactDOM.render(
   <React.StrictMode>

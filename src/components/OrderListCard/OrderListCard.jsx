@@ -9,12 +9,14 @@ export default function OrderListCard(props) {
 
     
   const status = props.status;
+  
 
   useEffect(() =>{
-    if(status === false){
+    if(status === 'Cancel'){
         setStatusValue('Cancel');
         setStatusColor(true)
-     }
+     };
+
   },[status])
   
  
@@ -38,7 +40,7 @@ export default function OrderListCard(props) {
                {props.date}
             </div>
             <div className={classes.OrderAmount}>
-                {props.amount}
+                ${props.amount}
             </div>
             <div className={props.isGrid?statusColor?classes.StatusGridColor:classes.StatusGrid:statusColor?classes.StatusColorList:classes.Status}>
                {statusValue}

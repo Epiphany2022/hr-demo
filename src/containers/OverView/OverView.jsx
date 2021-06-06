@@ -14,6 +14,7 @@ import {orderListData} from '../../components/Constants/defaultValue';
 import Axios from 'axios';
 import { accessOrderList } from '../../Redux/reducer';
 import { useDispatch, useSelector } from "react-redux";
+import { Instagram } from 'react-content-loader';
 
 
 
@@ -27,6 +28,7 @@ export default function OverView() {
     const [isGrid, setIsGrid] = useState(false);
     const[pageNumber, setPageNumber]=useState(0);
    const [listData, setListData]=useState([]);
+   const[loading, setLoading]=useState(false)
 
 
 
@@ -59,16 +61,19 @@ export default function OverView() {
 
 
     useEffect(()=>{
+        setLoading(true)
        document.title="Easy Erp | Overview";
 
        Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/OrderList")
        .then(res =>{
+        setLoading(false)
         setListData(res.data)
         dispatch(
             accessOrderList(res.data)
            )
        }).catch(err =>{
            console.log(err)
+           setLoading(false)
        })
               
        
@@ -131,11 +136,15 @@ export default function OverView() {
 
    
       <div className={[isGrid?classes.OrderCardGrid:classes.OrderCardContainer]}>
-      <Suspense fallback={<h1>Loading profile...</h1>}>
+          <Suspense fallback={<h1>Loading...</h1>}>
+          
       {
        displayListData
       }
-      </Suspense>
+          </Suspense>
+      
+    
+     
       <div className={classes.PaginationContainer}>
       <ReactPaginate 
        previousLabel={"Previous"}
@@ -149,6 +158,7 @@ export default function OverView() {
        activeClassName={classes.PaginationActive}
       />
       </div>
+        
   
       </div>
         
