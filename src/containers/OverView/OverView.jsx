@@ -15,11 +15,50 @@ import Axios from 'axios';
 import { accessOrderList } from '../../Redux/reducer';
 import { useDispatch, useSelector } from "react-redux";
 import { Instagram } from 'react-content-loader';
+import customerPic from '../../Assests/customerPic.png'
+import purchasePic from '../../Assests/invoice.png';
+import productPic from '../../Assests/product.png';
+import profitPic from '../../Assests/profit.png'
 
 
 
 
 export default function OverView() {
+
+
+
+    const mainOrderListData = useSelector((state) => state.orderListData);
+    const customerNumber = mainOrderListData.length;
+    const profitList = mainOrderListData.filter((item) => item.status === "confirm") 
+    const profitArray = profitList.map((item) => parseFloat(item.amount));
+    const sumOfTotalProfit= profitArray.reduce((a,b) => a+b, 0);
+    const topCardData = [
+        {
+            id:1,
+            img:customerPic,
+            detail:"Total Customer",
+            number:customerNumber
+        },
+        {
+            id:2,
+            img:profitPic,
+            detail:"Total Profit",
+            number:sumOfTotalProfit
+        },
+        {
+            id:3,
+            img:purchasePic,
+            detail:"Total Purchase",
+            number:80
+        },
+        {
+            id:4,
+            img:productPic,
+            detail:"Total Product",
+            number:100
+        },
+       
+    ]
 
  
    
@@ -84,13 +123,19 @@ export default function OverView() {
 
     return (
         <div className={classes.MainContainer}>
+
       <motion.div   initial={{ y: "-120vw", transition: { type: "spring", duration: 1.5 } }}
              animate={{ y: 0, transition: { type: "spring", duration: 1.5 } }} className={classes.TopFlexWrapper}>
-      <OverviewSmallCards/><OverviewSmallCards/><OverviewSmallCards/><OverviewSmallCards/>
+     {
+         topCardData.map(item =>{
+             return <OverviewSmallCards key={item.id} id={item.id} img={item.img} detail={item.detail} number={item.number} />
+         })
+     }
       </motion.div>
+
       <motion.div    initial={{ x: "-120vw", transition: { type: "spring", duration: 1.5 } }}
                   animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }} className={classes.MiddleFlexWrapper}>
-         <PerformanceChart/><StatisticsChart/>
+         <PerformanceChart/><StatisticsChart sumOfTotalProfit={sumOfTotalProfit}/>
       </motion.div>
       <motion.div   initial={{ x: "120vw", transition: { type: "spring", duration: 1.5 } }}
              animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }}  className={classes.BottomFlexWrapper}>

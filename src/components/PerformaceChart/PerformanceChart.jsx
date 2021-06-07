@@ -5,11 +5,13 @@ import { useSelector } from 'react-redux'
 
 export default function PerformanceChart() {
 
-   const mainGraphData = useSelector((state) => state.orderListData)
-   const yearSortTwenty = mainGraphData.filter((item) => item.date.slice(6) === "2020") 
-   const yearSortTwentyOne = mainGraphData.filter((item) => item.date.slice(0,4) === "2021") ;
+   const mainGraphData = useSelector((state) => state.orderListData);
+   const confirmYears = mainGraphData.filter((item) => item.status === "confirm")  ;
+   
+   const yearSortTwenty = confirmYears.filter((item) => item.date.slice(0,4) === "2020") 
+   const yearSortTwentyOne = confirmYears.filter((item) => item.date.slice(0,4) === "2021") ;
       
-console.log(yearSortTwentyOne)
+
    useEffect(() =>{
 
     
@@ -17,18 +19,18 @@ console.log(yearSortTwentyOne)
    },[mainGraphData])
 
   //year 2020
-  const twentyJan = yearSortTwenty.filter((item) => item.date.slice(3,5) === "01")
-  const twentyFeb = yearSortTwenty.filter((item) => item.date.slice(3,5) === "02")
-  const twentyMar = yearSortTwenty.filter((item) => item.date.slice(3,5) === "03")
-  const twentyApr = yearSortTwenty.filter((item) => item.date.slice(3,5) === "04")
-   const twentyMay = yearSortTwenty.filter((item) => item.date.slice(3,5) === "05")
-   const twentyJune = yearSortTwenty.filter((item) => item.date.slice(3,5) === "06")
-   const twentyJuly = yearSortTwenty.filter((item) => item.date.slice(3,5) === "07")
-   const twentyAug = yearSortTwenty.filter((item) => item.date.slice(3,5) === "08")
-   const twentySept = yearSortTwenty.filter((item) => item.date.slice(3,5) === "09")
-   const twentyOct = yearSortTwenty.filter((item) => item.date.slice(3,5) === "10")
-   const twentyNov = yearSortTwenty.filter((item) => item.date.slice(3,5) === "11")
-   const twentyDec = yearSortTwenty.filter((item) => item.date.slice(3,5) === "12")
+  const twentyJan = yearSortTwenty.filter((item) => item.date.slice(5,7) === "01")
+  const twentyFeb = yearSortTwenty.filter((item) => item.date.slice(5,7) === "02")
+  const twentyMar = yearSortTwenty.filter((item) => item.date.slice(5,7) === "03")
+  const twentyApr = yearSortTwenty.filter((item) => item.date.slice(5,7) === "04")
+   const twentyMay = yearSortTwenty.filter((item) => item.date.slice(5,7) === "05")
+   const twentyJune = yearSortTwenty.filter((item) => item.date.slice(5,7) === "06")
+   const twentyJuly = yearSortTwenty.filter((item) => item.date.slice(5,7) === "07")
+   const twentyAug = yearSortTwenty.filter((item) => item.date.slice(5,7) === "08")
+   const twentySept = yearSortTwenty.filter((item) => item.date.slice(5,7) === "09")
+   const twentyOct = yearSortTwenty.filter((item) => item.date.slice(5,7) === "10")
+   const twentyNov = yearSortTwenty.filter((item) => item.date.slice(5,7) === "11")
+   const twentyDec = yearSortTwenty.filter((item) => item.date.slice(5,7) === "12")
  
    
    const novTwentyProfit = twentyNov.map((item) => parseFloat(item.amount));
@@ -82,18 +84,18 @@ console.log(yearSortTwentyOne)
     
 
     //year 2021
-    const twentyOneFeb = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "02")
-    const twentyOneJan = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "01")
-    const twentyOneMar = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "03")
-    const twentyOneApr = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "04")
-     const twentyOneMay = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "05")
+    const twentyOneFeb = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "02")
+    const twentyOneJan = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "01")
+    const twentyOneMar = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "03")
+    const twentyOneApr = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "04")
+     const twentyOneMay = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "05")
      const twentyOneJune = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "06")
-     const twentyOneJuly = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "07")
-     const twentyOneAug = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "08")
-     const twentyOneSept = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "09")
-     const twentyOneOct = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "10")
-     const twentyOneNov = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "11")
-     const twentyOneDec = yearSortTwentyOne.filter((item) => item.date.slice(3,5) === "12");
+     const twentyOneJuly = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "07")
+     const twentyOneAug = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "08")
+     const twentyOneSept = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "09")
+     const twentyOneOct = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "10")
+     const twentyOneNov = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "11")
+     const twentyOneDec = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "12");
 
    console.log(twentyOneJune)
      const novTwentyOneProfit = twentyOneNov.map((item) => parseFloat(item.amount));

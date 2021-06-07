@@ -12,7 +12,7 @@ export default function OrderListCard(props) {
   
 
   useEffect(() =>{
-    if(status === 'Cancel'){
+    if(status === 'cancel'){
         setStatusValue('Cancel');
         setStatusColor(true)
      };

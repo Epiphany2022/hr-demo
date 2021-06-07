@@ -1,8 +1,30 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import classes from './Customers.module.css';
 import { useForm } from 'react-hook-form';
 import Axios from 'axios';
+import { pictureList } from '../../components/Constants/defaultValue';
+import {  Link, useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion';
+
+
+
+
 export default function Customers() {
+
+    const [isSubmitted, setIsSubmitted]=useState(false)
+    
+    
+ 
+
+  
+
+   const getRandom = () =>{
+    let pictures = pictureList
+    return pictures[Math.floor((Math.random()*pictures.length))];
+   }
+
+   const history = useHistory();
+
     useEffect(()=>{
         document.title="Easy Erp | Customers"
      },[]);
@@ -12,55 +34,98 @@ export default function Customers() {
        
         );
 
-
         
         const onSubmit  = (data) =>{
            console.log(data);
-
+           setIsSubmitted(true)
            var config = {
             method: 'post',
             url: "https://5fe1862804f0780017de9d2e.mockapi.io/OrderList",
 
-            data: data
+            data:{
+                "id": Date.now(),
+                "name": data.name,
+                "date": data.date,
+                "amount":data.amount,
+                "status": data.category,
+                "img": getRandom()
+            }
         };
 
-        Axios(config)
+        Axios(config).then(res =>{
+           
+           if(res.status === 201){
+            
+            setTimeout(function(){ history.push('/dashboard') }, 5000)
+           
+            
+          
+                    // setTimeout((history.push('/dashboard')),4000)
+            
+        
+
+            
+            //    history.push('/dashboard')
+           
+           }
+           
+        }).catch(err =>{
+            console.log(err)
+        });
         
 
          
         }
+      
 
 
     return (
         <div className={classes.MainContainer}>
-           <form  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
-               <input 
-               name="name" 
-               type="text"
-               placeholder="Customer Name"
-               {...register("name")}
-               />
-               <input 
-               name="date"
-               type="date"
-               placeholder="Order Date"
-               pattern="\d{2}\\d{2}\\d{4}"
+          <h3 className={classes.Header}>Customer Information</h3>
+          <motion.form    initial={{ y: "-120vw", transition: { type: "spring", duration: 1.5 } }}
+             animate={{ y: 0, transition: { type: "spring", duration: 1.5 } }}
+                         
+ className={[isSubmitted?classes.CustomerInfoFormSubmit:classes.CustomerInfoForm]} autoComplete="off" onSubmit={handleSubmit(onSubmit)} >
+             <div className={classes.InputContainer}>
+                 <input 
+                 className={classes.NameInput} 
+                 name="name"
+                 type="text"
+                 placeholder="Name"
+                 {...register("name")}
+                 required
+                 />
+             </div>
+             <div className={classes.InputContainer}>
+                 <input 
+                 className={classes.DateInput} 
+                 name="date"
+                 type="date"
+                 pattern="\d{2}\\d{2}\\d{4}"
                {...register("date")}
-               />
-               <input 
-               name="amount"
-               type="number"
-               placeholder="Order Amount"
+                 required
+                 />
+             </div>
+             <div className={classes.InputContainer}>
+                 <input 
+                 className={classes.AmountInput} 
+                 name="amount"
+                 type="text"
+                placeholder="Enter Amount"
                {...register("amount")}
-               />
-               <input 
-               name="status"
-               type="text"
-               placeholder="Status"
-               {...register("status")}
-               />
-               <button type="submit">Submit</button>
-           </form>
+                 required
+                 />
+             </div>
+             <div className={classes.InputContainer}>
+             <select className={classes.StatusInput} required {...register("category")}>
+        <option value="">Select status</option>
+        <option value="confirm">Confirm</option>
+        <option value="cancel">Cancel</option>
+      </select>
+               
+             </div>
+             <input className={classes.SubmitBtn} type="submit" />
+          </motion.form>
         </div>
     )
 }
