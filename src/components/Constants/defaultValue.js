@@ -1,6 +1,61 @@
-
+import prod from '../../Assests/pro.jpg';
+import prod2 from '../../Assests/prod2.jpg'
+import prod3 from '../../Assests/prod3.jpg'
+import prod4 from '../../Assests/prod4.jpg'
+import prod5 from '../../Assests/prod5.jpg'
+import prod6 from '../../Assests/prod6.png'
 export const pictureList = [
   "https://robohash.org/itaquevoluptatemquis.png?size=50x50&set=set1","https://robohash.org/quosvoluptatemquia.png?size=50x50&set=set1","https://robohash.org/voluptatemutanimi.png?size=50x50&set=set1","https://robohash.org/voluptatemutanimi.png?size=50x50&set=set1","https://robohash.org/possimussitarchitecto.png?size=50x50&set=set1","https://robohash.org/iustonihilest.png?size=50x50&set=set1","https://robohash.org/isteiustodolores.png?size=50x50&set=set1","https://robohash.org/sintprovidentet.png?size=50x50&set=set1","https://robohash.org/doloremcorruptideserunt.png?size=50x50&set=set1"
+];
+
+export const productListData = [{
+  "id": "1",
+  "name": "Product One",
+  
+  
+  "quantity": 600,
+  "img": prod
+},
+{
+  "id": "2",
+  "name": "Product Two",
+  
+  
+  "quantity": 2300,
+  "img": prod2
+},
+{
+  "id": "3",
+  "name": "Product Three",
+  
+  
+  "quantity":2200,
+  "img": prod3
+},
+{
+  "id": "4",
+  "name": "Product Four",
+  
+  
+  "quantity": 800,
+  "img": prod4
+},
+{
+  "id": "5",
+  "name": "Product Five",
+  
+  
+  "quantity": 1200,
+  "img": prod5
+},
+{
+  "id": "6",
+  "name": "Product Six",
+  
+  
+  "quantity": 2500,
+  "img": prod6
+},
 ]
 
 export const orderListData = [ {

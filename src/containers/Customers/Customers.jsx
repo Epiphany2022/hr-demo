@@ -56,16 +56,11 @@ export default function Customers() {
            
            if(res.status === 201){
             
-            setTimeout(function(){ history.push('/dashboard') }, 5000)
+            // setTimeout(function(){ history.push('/dashboard') }, 1000)
            
-            
+            history.push('/dashboard')
           
-                    // setTimeout((history.push('/dashboard')),4000)
-            
-        
-
-            
-            //    history.push('/dashboard')
+               
            
            }
            
@@ -81,6 +76,7 @@ export default function Customers() {
 
     return (
         <div className={classes.MainContainer}>
+            <div className={[isSubmitted?classes.SuccessContainer:classes.SuccessContainerHidden]}>Form Submitted</div>
           <h3 className={classes.Header}>Customer Information</h3>
           <motion.form    initial={{ y: "-120vw", transition: { type: "spring", duration: 1.5 } }}
              animate={{ y: 0, transition: { type: "spring", duration: 1.5 } }}

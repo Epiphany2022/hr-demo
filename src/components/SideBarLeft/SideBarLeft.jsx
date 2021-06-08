@@ -21,8 +21,35 @@ export default function SideBarLeft() {
    useEffect(()=>{
         if(history.location.pathname === "/dashboard"){
             setActiveOverview(true)
+            setActiveCustomer(false)
+            setActiveProduct(false)
+            setActivePurchase(false)
         }
-   },[history])
+        if(history.location.pathname === "/dashboard/customer"){
+            setActiveOverview(false)
+            setActiveCustomer(true)
+            setActiveProduct(false)
+            setActivePurchase(false)
+        }
+        if(history.location.pathname === "/dashboard/customer"){
+            setActiveOverview(false)
+            setActiveCustomer(true)
+            setActiveProduct(false)
+            setActivePurchase(false)
+        }
+        if(history.location.pathname === "/dashboard/product"){
+            setActiveOverview(false)
+            setActiveCustomer(false)
+            setActiveProduct(true)
+            setActivePurchase(false)
+        }
+        if(history.location.pathname === "/dashboard/purchase"){
+            setActiveOverview(false)
+            setActiveCustomer(false)
+            setActiveProduct(false)
+            setActivePurchase(true)
+        }
+   },[history.location.pathname])
 
    const handleActiveOverview = () =>{
            setActiveOverview(true);
