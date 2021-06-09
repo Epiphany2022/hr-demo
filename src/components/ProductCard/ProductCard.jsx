@@ -1,11 +1,15 @@
 
 import React from 'react'
 import classes from './ProductCard.module.css';
-import productImg from '../../Assests/pro.jpg'
+
 export default function ProductCard(props) {
+  const idNumber =() =>{
+     alert(props.id)
+  }
+
     return (
         <div 
-     
+          onClick={idNumber}
         className={classes.MainContainer}>
             <div className={classes.TopContainer}>
                <img src={props.img} alt="product"/>

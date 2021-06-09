@@ -1,9 +1,4 @@
-import prod from '../../Assests/pro.jpg';
-import prod2 from '../../Assests/prod2.jpg'
-import prod3 from '../../Assests/prod3.jpg'
-import prod4 from '../../Assests/prod4.jpg'
-import prod5 from '../../Assests/prod5.jpg'
-import prod6 from '../../Assests/prod6.png'
+
 export const pictureList = [
   "https://robohash.org/itaquevoluptatemquis.png?size=50x50&set=set1","https://robohash.org/quosvoluptatemquia.png?size=50x50&set=set1","https://robohash.org/voluptatemutanimi.png?size=50x50&set=set1","https://robohash.org/voluptatemutanimi.png?size=50x50&set=set1","https://robohash.org/possimussitarchitecto.png?size=50x50&set=set1","https://robohash.org/iustonihilest.png?size=50x50&set=set1","https://robohash.org/isteiustodolores.png?size=50x50&set=set1","https://robohash.org/sintprovidentet.png?size=50x50&set=set1","https://robohash.org/doloremcorruptideserunt.png?size=50x50&set=set1"
 ];
@@ -14,7 +9,7 @@ export const productListData = [{
   
   
   "quantity": 600,
-  "img": prod
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/pro.jpg"
 },
 {
   "id": "2",
@@ -22,7 +17,7 @@ export const productListData = [{
   
   
   "quantity": 2300,
-  "img": prod2
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/prod2.jpg"
 },
 {
   "id": "3",
@@ -30,7 +25,7 @@ export const productListData = [{
   
   
   "quantity":2200,
-  "img": prod3
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/prod3.jpg"
 },
 {
   "id": "4",
@@ -38,7 +33,7 @@ export const productListData = [{
   
   
   "quantity": 800,
-  "img": prod4
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/prod4.jpg"
 },
 {
   "id": "5",
@@ -46,7 +41,7 @@ export const productListData = [{
   
   
   "quantity": 1200,
-  "img": prod5
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/prod5.jpg"
 },
 {
   "id": "6",
@@ -54,7 +49,7 @@ export const productListData = [{
   
   
   "quantity": 2500,
-  "img": prod6
+  "img": "https://nishbuck878.s3.ap-south-1.amazonaws.com/prod6.png"
 },
 ]
 

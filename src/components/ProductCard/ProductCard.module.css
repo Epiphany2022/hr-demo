@@ -10,6 +10,7 @@ padding: 1rem;
    border-radius: 7px;
    transition: all 0.3s;
    justify-content: center;
+   cursor: pointer;
 }
 .TopContainer{
     width: 100%;
