@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Link } from 'react-router-dom'
+import {  Link, useHistory } from 'react-router-dom'
 import classes from './Register.module.css';
 import MainLogo from '../../Assests/Easy.png';
 import { motion } from "framer-motion";
@@ -11,8 +11,11 @@ import fire from '../../Config/fire'
 const eye = <FontAwesomeIcon icon={faEye} />;
 export default function Register() {
 
+    const history = useHistory()
+
     const [passwordShownColor, setPasswordShownColor] = useState("inActive");
     const [passwordShown, setPasswordShown] = useState(false);
+    const [isSubmitted, setIsSubmitted]=useState(false)
 
     const togglePasswordVisiblity = (e) => {
 
@@ -33,10 +36,13 @@ export default function Register() {
 
 
         const onSubmit  = (data) =>{
-            console.log(data)
-            fire.auth().createUserWithEmailAndPassword(data.email, data.password)
+           
+            fire.auth().createUserWithEmailAndPassword(data.email, data.password).then(res =>{
+                setIsSubmitted(true);
+                setTimeout(function(){ history.push("/login") }, 1000);
+            })
             .catch((err)=>{
-                console.log(err)
+              alert(err.message)
             })
          
         }
@@ -65,7 +71,7 @@ export default function Register() {
             <motion.div 
               initial={{ x: "120vw", transition: { type: "spring", duration: 2 } }}
               animate={{ x: 0, transition: { type: "spring", duration: 2 } }}
-            className={classes.FormContainer}>
+            className={[isSubmitted?classes.FormContainerSubmit:classes.FormContainer]}>
                 <form autoComplete="off" className={classes.RegisterForm} onSubmit={handleSubmit(onSubmit)} >
                 <div className={classes.InputBox}>
                    <input
@@ -110,7 +116,7 @@ export default function Register() {
                 </form>
             </motion.div>
             </div>
-           
+            <div className={[isSubmitted?classes.SuccessContainer:classes.SuccessContainerHidden]}>Form Submitted</div>
         </div >
     )
 }

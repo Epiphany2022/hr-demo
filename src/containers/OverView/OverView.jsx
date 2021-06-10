@@ -102,8 +102,8 @@ export default function OverView() {
     useEffect(()=>{
         setLoading(true)
        document.title="Easy Erp | Overview";
-
-       Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/OrderList")
+        const url = "https://5fe1862804f0780017de9d2e.mockapi.io/OrderList"
+       Axios.get(url)
        .then(res =>{
         setLoading(false)
         setListData(res.data)

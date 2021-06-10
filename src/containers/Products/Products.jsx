@@ -29,11 +29,11 @@ export default function Products() {
    const handleIdFetching = (id) =>{
      setClickId(id);
      setProductInfoVisible(true)
-     console.log(clickId)
+    
     Axios.get(`https://5fe1862804f0780017de9d2e.mockapi.io/ProductList/${id}`)
     .then(res =>{
         setProductInfo(res.data);
-        console.log(productInfo);
+        
         setQuantity(res.data.quantity)
     }).catch(err =>{
         console.log(err)
@@ -42,7 +42,7 @@ export default function Products() {
 
 
 const handleChangedQuantity = ()=>{
-    console.log(quantity);;
+   
    const changedData = {
     "quantity":205
    }
@@ -50,7 +50,7 @@ const handleChangedQuantity = ()=>{
      Axios.post(`https://5fe1862804f0780017de9d2e.mockapi.io/ProductList/5`, changedData).then(res =>{
         if(res.status === 201){
             
-       console.log("y")
+       
           
                
            
@@ -62,7 +62,7 @@ const handleChangedQuantity = ()=>{
 
 
 const quantityChange = (e) =>{
-    console.log(e.target.value)
+  
     setQuantity(e.target.value)
 }
 
@@ -73,9 +73,9 @@ const quantityChange = (e) =>{
         Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/ProductList")
         .then(res =>{
             setProductList(res.data);
-            console.log(res.data);
+           
             const allQuantityList = (res.data.map((item) => item.quantity)).reduce((a,b) => a+b, 0);
-            console.log(allQuantityList)
+         
             dispatch(
                 accessTotalStock(
                     allQuantityList

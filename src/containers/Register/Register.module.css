@@ -6,6 +6,7 @@
    font-family: 'Open Sans', sans-serif;
    overflow-y: hidden;
    overflow-x: hidden;
+   position: relative;
 }
 .MainLogoContainer{
     width: 12%;
@@ -60,6 +61,11 @@
   display: flex;
   justify-content: center;
 }
+.FormContainerSubmit{
+    transition: all 0.5s ease;
+    transform: translateX(-100vw) !important;
+}
+
 .RegisterForm{
     width: 25rem;
     height: 67vh;
@@ -83,7 +89,7 @@ form{
 }
 .InputTag{
     width: 100%;
-    height: 5rem;
+    height: 4rem;
     outline: none;
     background-color: #E8F0FE;
     border: 1px solid #F8FAFB;
@@ -103,7 +109,7 @@ form{
   .ActivePassword{color:#455AF7}
   .Btn{
     width: 100%;
-    height: 5rem;
+    height: 4rem;
     outline: none;
     background-color: #455AF7;
     border: 1px solid #F3F5F5;
@@ -120,4 +126,38 @@ form{
    text-decoration: none;
    color: #000;
   }
-  
+  .SuccessContainer{
+    position: absolute;
+    right: 35%;
+    width: 20%;
+    height: 50px;
+    top: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.05));
+    border-radius: 10px;
+    color: #455AF7;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.SuccessContainerHidden{
+    position: absolute;
+    right: -1000%;
+    top: 40%;
+    width: 20%;
+    height: 50px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.05));
+    border-radius: 10px;
+    color: #455AF7;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}

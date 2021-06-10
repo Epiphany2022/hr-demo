@@ -12,8 +12,8 @@ import Notification from '../../components/Notification/Notification'
 
 export default function Dashboard() {
 
-    const location = useLocation();
-    console.log(location)
+    
+    
 
 
     return (

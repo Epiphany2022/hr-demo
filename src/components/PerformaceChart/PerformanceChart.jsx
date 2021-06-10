@@ -97,7 +97,7 @@ export default function PerformanceChart() {
      const twentyOneNov = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "11")
      const twentyOneDec = yearSortTwentyOne.filter((item) => item.date.slice(5,7) === "12");
 
-   console.log(twentyOneJune)
+
      const novTwentyOneProfit = twentyOneNov.map((item) => parseFloat(item.amount));
  
    const sumOfNovTwentyOne = novTwentyOneProfit.reduce((a,b) => a+b, 0);
