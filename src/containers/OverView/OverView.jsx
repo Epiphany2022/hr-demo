@@ -55,7 +55,7 @@ export default function OverView() {
             id:4,
             img:productPic,
             detail:"Total Product",
-            number:100
+            number:6
         },
        
     ]

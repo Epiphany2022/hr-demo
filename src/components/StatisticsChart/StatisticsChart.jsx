@@ -1,14 +1,20 @@
 import React from 'react'
 import classes from './StatisticsChart.module.css';
 import { Doughnut } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
+
+
 export default function StatisticsChart(props) {
+
+
+  const totalStocks = useSelector(state => state.stockListData)
 
     const data = {
         labels: ['Sales','Purchase','Stock'],
         datasets: [
           {
             label: '# of Votes',
-            data: [props.sumOfTotalProfit, 8000, 20000],
+            data: [props.sumOfTotalProfit, 8000, totalStocks],
             backgroundColor: [
               'rgb(39,67,247)',
               'rgb(164,116,226)',

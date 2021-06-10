@@ -4,7 +4,7 @@ import classes from './ProductCard.module.css';
 
 export default function ProductCard(props) {
   const idNumber =() =>{
-     alert(props.id)
+    props.handleIdFetching(props.id)
   }
 
     return (

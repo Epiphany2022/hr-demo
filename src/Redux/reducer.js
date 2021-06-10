@@ -9,7 +9,8 @@ const usersContainer = createSlice({
     initialState:{
         userEmail:'',
         
-        orderListData:[]
+        orderListData:[],
+        stockListData:0
     },
 
     reducers:{
@@ -18,12 +19,15 @@ const usersContainer = createSlice({
         },
         accessOrderList: (state, action) =>{
             state.orderListData = action.payload
-        }
+        },
+        accessTotalStock: (state, action) =>{
+            state.stockListData = action.payload
+        },
     },
   
 
 });
 
-export const { userCred, accessOrderList } = usersContainer.actions;
+export const { userCred, accessOrderList, accessTotalStock } = usersContainer.actions;
 
 export const reducer = usersContainer.reducer;
