@@ -36,7 +36,7 @@ export default function Customers() {
 
         
         const onSubmit  = (data) =>{
-           console.log(data);
+           
            setIsSubmitted(true)
            var config = {
             method: 'post',
