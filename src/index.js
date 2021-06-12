@@ -3,18 +3,23 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './Redux/Store';
+import {store, persistedStore} from './Redux/Store';
+
 import { Provider } from 'react-redux';
 import { Instagram } from 'react-content-loader';
+import { PersistGate } from 'redux-persist/integration/react'
+
 
 const loading = () => <Instagram/>
  
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <PersistGate loading={null} persistor={persistedStore}>
     <Suspense fallback={loading()}>
         <App />
       </Suspense>
+      </PersistGate>
     </Provider>
    
   </React.StrictMode>,

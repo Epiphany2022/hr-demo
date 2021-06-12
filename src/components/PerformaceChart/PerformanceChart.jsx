@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 export default function PerformanceChart() {
 
-   const mainGraphData = useSelector((state) => state.orderListData);
+   const mainGraphData = useSelector((state) => state.reducer.orderListData);
    const confirmYears = mainGraphData.filter((item) => item.status === "confirm")  ;
    
    const yearSortTwenty = confirmYears.filter((item) => item.date.slice(0,4) === "2020") 

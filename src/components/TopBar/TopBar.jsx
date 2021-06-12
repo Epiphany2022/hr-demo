@@ -9,10 +9,18 @@ import { useSelector } from 'react-redux'
 
 export default function TopBar() {
 
+      const [name, setName]= useState("Loading...")
 
 
 
-   
+    const displayName = useSelector((state) => state.reducerA.userEmail);
+
+    useEffect(() =>{
+        if(displayName){
+            const headerName = displayName.split("@")[0];
+            setName(headerName)
+         }
+    },[displayName])
  
 
     var today = new Date();
@@ -42,7 +50,7 @@ export default function TopBar() {
                    <div className={classes.TodayDate}>{todayDate}</div>
                </div>
                <div className={classes.ProfileMainWrapper}>
-                   
+               <div className={classes.NameWrapper}>{name}</div>
                    <div onClick={logoutHandler} className={classes.NameWrapper}>Logout</div>
                </div>
                </div>
