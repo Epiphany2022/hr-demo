@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from 'react-hook-form';
 import fire from '../../Config/fire';
-import { userCred } from '../../Redux/reducer';
+import { userCred } from '../../Redux/cred';
 import { useDispatch }  from 'react-redux'
 
 
@@ -46,9 +46,13 @@ export default function Login() {
             .then((u) =>{
                 
                 localStorage.setItem('log', "loggedIn");
-                // if(u.user.email){
-                //    sessionStorage.setItem('id', u.user.email)
-                // }
+                if(u.user.email){
+                  dispatch(
+                      userCred(
+                        u.user.email
+                  )
+                  )
+                }
             
                 history.push('/dashboard')
             })

@@ -27,7 +27,7 @@ export default function OverView() {
 
 
 
-    const mainOrderListData = useSelector((state) => state.orderListData);
+    const mainOrderListData = useSelector((state) => state.reducer.orderListData);
     const customerNumber = mainOrderListData.length;
     const profitList = mainOrderListData.filter((item) => item.status === "confirm") 
     const profitArray = profitList.map((item) => parseFloat(item.amount));
