@@ -19,6 +19,7 @@ export default function Products() {
    const[productInfo, setProductInfo]=useState({});
    const [quantity, setQuantity]=useState("");
    const [clickId, setClickId]=useState();
+   const[loadingMain, setLoadingMain]=useState(false)
    const [productInfoVisible, setProductInfoVisible]=useState(false)
      
 
@@ -26,18 +27,22 @@ export default function Products() {
     setProductInfoVisible(false)
    }
 
-   const handleIdFetching = (id) =>{
+   const handleIdFetching = async (id) =>{
      setClickId(id);
      setProductInfoVisible(true)
     
-    Axios.get(`https://5fe1862804f0780017de9d2e.mockapi.io/ProductList/${id}`)
-    .then(res =>{
-        setProductInfo(res.data);
+   const requestForParticularData =  await Axios.get(`https://5fe1862804f0780017de9d2e.mockapi.io/ProductList/${id}`)
+    // .then(res =>{
+    //     setProductInfo(res.data);
         
-        setQuantity(res.data.quantity)
-    }).catch(err =>{
-        console.log(err)
-    })
+    //     setQuantity(res.data.quantity)
+    // }).catch(err =>{
+    //     console.log(err)
+    // })
+    setProductInfo(requestForParticularData.data);
+        
+    setQuantity(requestForParticularData.data.quantity)
+
 };
 
 
@@ -68,22 +73,47 @@ const quantityChange = (e) =>{
 
     useEffect(()=>{
         document.title="Easy Erp | Products";
-        
-         
-        Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/ProductList")
-        .then(res =>{
-            setProductList(res.data);
-           
-            const allQuantityList = (res.data.map((item) => item.quantity)).reduce((a,b) => a+b, 0);
-         
+        setLoadingMain(true)
+         const makeRequest = async () =>{
+          
+            try {
+                const mainProductListData = await Axios.get("https://5fe1862804f0780017de9d2e.mockapi.io/ProductList")
+            // .then(res =>{
+            //     setProductList(res.data);
+               
+            //     const allQuantityList = (res.data.map((item) => item.quantity)).reduce((a,b) => a+b, 0);
+             
+            //     dispatch(
+            //         accessTotalStock(
+            //             allQuantityList
+            //         )
+            //     )
+            // }).catch(err =>{
+            //     console.log(err)
+            // })
+
+            setProductList(mainProductListData.data);
+            
+            const allQuantityList = (mainProductListData.data.map((item) => item.quantity)).reduce((a,b) => a+b, 0);
+             
             dispatch(
                 accessTotalStock(
                     allQuantityList
                 )
-            )
-        }).catch(err =>{
-            console.log(err)
-        })
+            );
+            setLoadingMain(false);
+                
+            } catch (error) {
+                console.log(error);
+                setLoadingMain(false);
+            }
+
+       
+           
+         }
+
+         makeRequest();
+      
 
      },[])
     return (
@@ -91,16 +121,18 @@ const quantityChange = (e) =>{
         initial={{ x: "120vw", transition: { type: "spring", duration: 1.5 } }}
              animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }}
         className={classes.MainContainer}>
-            <Suspense fallback={<div>Loading...</div>}>
-            <div className={classes.ProductCardContainer}>
-                {
-                    productList.map(item =>{
-                        return <ProductCard key={item.id} id={item.id} name={item.name} quantity={item.quantity} img={item.img} handleIdFetching={handleIdFetching} />
-                    })
-                }
-            
-            </div>
-            </Suspense>
+           {
+               loadingMain?<h1>Loading...</h1>: <div className={classes.ProductCardContainer}>
+               {
+                   productList.map(item =>{
+                       return <ProductCard key={item.id} id={item.id} name={item.name} quantity={item.quantity} img={item.img} handleIdFetching={handleIdFetching} />
+                   })
+               }
+           
+           </div>
+           }
+           
+           
           <div className={[productInfoVisible?classes.ProductInfoMainContainer:classes.ProductInfoMainContainerHidden]}>
               <h3 className={classes.ProductInfoName}>{productInfo.name}</h3>
               <div className={classes.ProductInfoDetails}>
