@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 export default function StatisticsChart(props) {
 
 
-  const totalStocks = useSelector(state => state.stockListData)
+  const totalStocks = useSelector(state => state.reducer.stockListData)
 
     const data = {
         labels: ['Sales','Purchase','Stock'],

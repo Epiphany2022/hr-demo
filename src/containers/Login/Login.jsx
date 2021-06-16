@@ -41,10 +41,10 @@ export default function Login() {
 
 
         const onSubmit  = (data) =>{
-           
+           console.log(data)
             fire.auth().signInWithEmailAndPassword(data.email, data.password)
             .then((u) =>{
-                
+               
                 localStorage.setItem('log', "loggedIn");
                 if(u.user.email){
                   dispatch(
