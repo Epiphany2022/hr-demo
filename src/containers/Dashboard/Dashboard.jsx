@@ -8,6 +8,7 @@ import Customers from '../Customers/Customers';
 import TopBar from '../../components/TopBar/TopBar';
 import OverView from '../OverView/OverView';
 import Notification from '../../components/Notification/Notification'
+import Purchase from '../Purchase/Purchase';
 
 
 export default function Dashboard() {
@@ -29,6 +30,7 @@ export default function Dashboard() {
                   <Route exact path="/dashboard" component={OverView} />
                   <Route  path="/dashboard/product" component={Products} />
                   <Route path="/dashboard/customer" component={Customers} />
+                  <Route path="/dashboard/purchase" component={Purchase} />
               </Switch>
                
                
