@@ -104,10 +104,10 @@ const handleActivePurchase = () =>{
                   <img className={classes.NavLinkIcons} src={Product} alt="product" />
                    <p>Products</p>
                </Link>
-               {/* <Link onClick={handleActivePurchase} to="/dashboard/purchase" className={`${classes.NavLinkFlexWrapper} ${activePurchase ? classes.Active : ''}`}>
+               <Link onClick={handleActivePurchase} to="/dashboard/purchase" className={`${classes.NavLinkFlexWrapper} ${activePurchase ? classes.Active : ''}`}>
                   <img className={classes.NavLinkIcons} src={Purchase} alt="purchase" />
                    <p>Purchase</p>
-               </Link> */}
+               </Link>
             </div>
         </nav>
         <div className={[animate?classes.MusicPlayer:classes.MusicPlayerPlay]}>
