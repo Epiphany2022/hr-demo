@@ -15,7 +15,9 @@ export default function Register() {
 
     const [passwordShownColor, setPasswordShownColor] = useState("inActive");
     const [passwordShown, setPasswordShown] = useState(false);
-    const [isSubmitted, setIsSubmitted]=useState(false)
+    const [isSubmitted, setIsSubmitted]=useState(false);
+    const [error, setError] = useState("");
+    const[isError, setIsError] = useState(false)
 
     const togglePasswordVisiblity = (e) => {
 
@@ -42,10 +44,12 @@ export default function Register() {
                 setTimeout(function(){ history.push("/login") }, 1000);
             })
             .catch((err)=>{
-              alert(err.message)
+              setError(err.message)
             })
          
         }
+
+        console.log(error)
 
     return (
         <div
@@ -82,6 +86,7 @@ export default function Register() {
                                             {...register("name")}
                                             required
                                         />
+                                   
                    </div>
                   <div className={classes.InputBox}>
                   <input
@@ -114,6 +119,15 @@ export default function Register() {
                       <p>Already registered ? <Link className={classes.LinkSeg} to="/login">Login</Link> </p>
                   </div>
                 </form>
+                <div className={classes.ErrorMessageName}>
+                Name should contain atleast 2 charc
+                </div>
+                {
+                    error?<div className={classes.ErrorMessageEmail}>
+                   {error}
+                    </div>:null
+                }
+                
             </motion.div>
             </div>
             <div className={[isSubmitted?classes.SuccessContainer:classes.SuccessContainerHidden]}>Form Submitted</div>
