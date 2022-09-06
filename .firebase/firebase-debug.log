@@ -1,0 +1,90 @@
+[debug] [2022-09-06T17:10:01.898Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T17:10:01.900Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-06T17:10:01.900Z] CLI Version:   11.8.0
+[debug] [2022-09-06T17:10:01.900Z] Platform:      win32
+[debug] [2022-09-06T17:10:01.901Z] Node Version:  v16.17.0
+[debug] [2022-09-06T17:10:01.902Z] Time:          Tue Sep 06 2022 12:10:01 GMT-0500 (Central Daylight Time)
+[debug] [2022-09-06T17:10:01.902Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T17:10:01.970Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T17:10:01.970Z] > authorizing via signed-in user (wroberts@epiphanyinc.net)
+[debug] [2022-09-06T17:10:01.970Z] [iam] checking project easy-erp-d7a87 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-06T17:10:01.973Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions [none]
+[debug] [2022-09-06T17:10:01.974Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions x-goog-quota-user=projects/easy-erp-d7a87
+[debug] [2022-09-06T17:10:01.974Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-06T17:10:02.323Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions 200
+[debug] [2022-09-06T17:10:02.323Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {}
+[debug] [2022-09-06T17:10:02.324Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project easy-erp-d7a87:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-09-06T17:10:02.325Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 [none]
+[debug] [2022-09-06T17:10:02.719Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 403
+[debug] [2022-09-06T17:10:02.719Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-09-06T17:10:02.720Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-09-06T17:10:02.889Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project easy-erp-d7a87. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-09-06T17:11:34.621Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T17:11:34.623Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-06T17:11:34.623Z] CLI Version:   11.8.0
+[debug] [2022-09-06T17:11:34.623Z] Platform:      win32
+[debug] [2022-09-06T17:11:34.624Z] Node Version:  v16.17.0
+[debug] [2022-09-06T17:11:34.625Z] Time:          Tue Sep 06 2022 12:11:34 GMT-0500 (Central Daylight Time)
+[debug] [2022-09-06T17:11:34.625Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T17:11:34.695Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T17:11:34.696Z] > authorizing via signed-in user (wroberts@epiphanyinc.net)
+[debug] [2022-09-06T17:11:34.696Z] [iam] checking project easy-erp-d7a87 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-06T17:11:34.698Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions [none]
+[debug] [2022-09-06T17:11:34.699Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions x-goog-quota-user=projects/easy-erp-d7a87
+[debug] [2022-09-06T17:11:34.699Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-06T17:11:34.932Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions 200
+[debug] [2022-09-06T17:11:34.932Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {}
+[debug] [2022-09-06T17:11:34.932Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project easy-erp-d7a87:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-09-06T17:11:34.933Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 [none]
+[debug] [2022-09-06T17:11:35.238Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 403
+[debug] [2022-09-06T17:11:35.238Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-09-06T17:11:35.239Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-09-06T17:11:35.412Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project easy-erp-d7a87. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-09-06T17:13:32.344Z] ----------------------------------------------------------------------
+[debug] [2022-09-06T17:13:32.346Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-09-06T17:13:32.347Z] CLI Version:   11.8.0
+[debug] [2022-09-06T17:13:32.347Z] Platform:      win32
+[debug] [2022-09-06T17:13:32.347Z] Node Version:  v16.17.0
+[debug] [2022-09-06T17:13:32.348Z] Time:          Tue Sep 06 2022 12:13:32 GMT-0500 (Central Daylight Time)
+[debug] [2022-09-06T17:13:32.349Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-09-06T17:13:32.417Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-09-06T17:13:32.417Z] > authorizing via signed-in user (wroberts@epiphanyinc.net)
+[debug] [2022-09-06T17:13:32.417Z] [iam] checking project easy-erp-d7a87 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-09-06T17:13:32.420Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions [none]
+[debug] [2022-09-06T17:13:32.421Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions x-goog-quota-user=projects/easy-erp-d7a87
+[debug] [2022-09-06T17:13:32.421Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-09-06T17:13:32.733Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions 200
+[debug] [2022-09-06T17:13:32.734Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/easy-erp-d7a87:testIamPermissions {}
+[debug] [2022-09-06T17:13:32.734Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project easy-erp-d7a87:
+
+  firebase.projects.get
+  firebasehosting.sites.update
+[debug] [2022-09-06T17:13:32.735Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 [none]
+[debug] [2022-09-06T17:13:33.032Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 403
+[debug] [2022-09-06T17:13:33.032Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/easy-erp-d7a87 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-09-06T17:13:33.033Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-09-06T17:13:33.180Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:49:12)
+    at RetryOperation._fn (C:\Users\iknow\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:288:77)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project easy-erp-d7a87. Please make sure the project exists and your account has permission to access it.
