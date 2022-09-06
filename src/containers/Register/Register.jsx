@@ -65,8 +65,8 @@ export default function Register() {
              initial={{ x: "120vw", transition: { type: "spring", duration: 1.5 } }}
              animate={{ x: 0, transition: { type: "spring", duration: 1.5 } }}
             className={classes.HeaderContainer}>
-                <h1>Welcome !</h1>
-                <h2>Let's get started</h2>
+                <h1>EP dataServices</h1>
+                <h2>POC</h2>
             </motion.div >
             <motion.div 
               initial={{ x: "120vw", transition: { type: "spring", duration: 2 } }}
